@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<MachineLearning>
+    <Algorithm>
+        <Name>Gradient Boosting</Name>
+        <Application>Классификация</Application>
+        <Year>1999</Year>
+        <Developer>Jerome Friedman</Developer>
+        <Complexity>Сложная</Complexity>
+    </Algorithm>
+    <Algorithm>
+        <Name>Linear Regression</Name>
+        <Application>Регрессия</Application>
+        <Year>1805</Year>
+        <Developer>Adrien-Marie Legendre</Developer>
+        <Complexity>Базовая</Complexity>
+    </Algorithm>
+    <Algorithm>
+        <Name>Convolutional Neural Networks</Name>
+        <Application>Распознавание образов</Application>
+        <Year>1989</Year>
+        <Developer>Yann LeCun</Developer>
+        <Complexity>Сложная</Complexity>
+    </Algorithm>
+    <Algorithm>
+        <Name>Hierarchical Clustering</Name>
+        <Application>Кластеризация</Application>
+        <Year>1958</Year>
+        <Developer>Joe H. Ward</Developer>
+        <Complexity>Средняя</Complexity>
+    </Algorithm>
+        <Name>Naive Bayes</Name>
+        <Application>Классификация</Application>
+        <Year>1961</Year>
+        <Developer>Marquardt and Edelstein</Developer>
+        <Complexity>Базовая</Complexity>
+    </Algorithm>
+</MachineLearning>

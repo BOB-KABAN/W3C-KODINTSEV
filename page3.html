@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы об ИИ</title>
+    <link rel="stylesheet" href="CSS/style-page3.css">
+    <script src="Java/JavaScriptspage3.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Вопросы об Искусственном Интеллекте</h1>
+        <div class="nav-head">
+            <nav>
+                <a href="page1.html" target="_blank"><b>Основы Искусственного Интеллекта</b></a>
+                <a href="page3.html" target="_blank"><b>Вопросы об ИИ</b></a>
+                <a href="page2.html" target="_blank"><b>Подбор книг по ИИ</b></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="qa-section">
+            <input type="text" id="user-question" placeholder="Задайте вопрос о ИИ...">
+            <button onclick="askQuestion()">Задать вопрос</button>
+            <button onclick="showExamples()">Показать примеры вопросов</button>
+            <p id="ai-response"></p>
+        </section>
+    </main>
+
+    <!-- Блок с примерами вопросов, скрыт по умолчанию -->
+    <div class="block-S" id="blockS" style="display: none;">
+        <section id="section4">
+            <h2 id="text-border">Примеры вопросов</h2>
+            <ol>
+                <li>Что такое ИИ?</li>
+                <li>Расскажи о машинном обучении.</li>
+                <li>Что такое глубокое обучение?</li>
+                <li>Как работает обработка естественного языка?</li>
+                <li>Объясни компьютерное зрение.</li>
+            </ol>
+            <button onclick="closeExamples()">Закрыть</button> <!-- Кнопка закрытия -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Вопросы об ИИ</p>
+    </footer>
+</body>
+</html>

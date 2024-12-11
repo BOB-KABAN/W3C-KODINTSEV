@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор книг по ИИ</title>
+    <link rel="stylesheet" href="CSS/style-page2.css">
+    <script src="Java/JavaScriptspage2.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Подбор книг по искусственному интеллекту</h1>
+        <div class="nav-head">
+            <nav>
+                <a href="page1.html" target="_blank"><b>Основы Искусственного Интеллекта</b></a>
+                <a href="page3.html" target="_blank"><b>Вопросы об ИИ</b></a>
+                <a href="page2.html" target="_blank"><b>Подбор книг по ИИ</b></a>
+            </nav>
+        </div>
+
+        <input type="text" id="search" placeholder="Введите название книги..." onkeyup="filterBooks()">
+    </header>
+
+    <section id="book-list">
+        <div class="book-item">
+            <h3>Матрица</h3>
+            <p>Автор: Жан Бодрийяр</p>
+            <p>Философское исследование реальности и симуляции.</p>
+        </div>
+        <div class="book-item">
+            <h3>Суперинтеллект</h3>
+            <p>Автор: Ник Бостром</p>
+            <p>Захватывающая книга о будущем искусственного интеллекта.</p>
+        </div>
+        <div class="book-item">
+            <h3>Искусственный интеллект: Руководство для мыслящих людей</h3>
+            <p>Автор: Мелани Митчелл</p>
+            <p>Глубокий анализ мира ИИ.</p>
+        </div>
+        <div class="book-item">
+            <h3>Жизнь 3.0</h3>
+            <p>Автор: Макс Тегмарк</p>
+            <p>Спекуляции о будущем ИИ и его влиянии на человечество.</p>
+        </div>
+        <div class="book-item">
+            <h3>Эра Эм</h3>
+            <p>Автор: Робин Хансон</p>
+            <p>Футуристическая картина мира, где доминируют ИИ и эмуляции мозга.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

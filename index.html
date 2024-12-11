@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<!--Голова-->
+
+<head>
+    <title> Искусственный интеллект </title>
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="Java/script.js"></script>
+    <script src="Java/jquery-3.7.1.js" ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<script>
+$(document).ready(function () {
+    // Массив со статистикой
+    const texts = [
+        "В 2024 году объём рынка ИИ достигнет 298 млрд долларов",
+        "Сегодня 55% компаний в мире применяют искусственный интеллект",
+        "С 2013 по 2023 год инвестиции в ИИ по всему миру выросли в 9 раз",
+        "45% компаний внедряют искусственный интеллект, потому что это доступно",
+        "64% компаний утверждают, что ИИ помог им повысить эффективность",
+        "К 2035 наибольшую отдачу от ИИ получат производство и торговля",
+        "Из-за развития ИИ работу могут потерять 400 млн человек",
+        "Каждая пятая компания в мире испытывает нехватку сотрудников, обладающих знаниями в области искусственного интеллекта",
+        "К 2047 году, вероятно, будет создан искусственный интеллект, который по своим возможностям будет близок к человеческому, с вероятностью 50%."
+    ];
+
+    // Индекс для циклической замены текста
+    let index = 0;
+    const removedTexts = [];
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Добавление нового элемента
+    $('#add').click(function () {
+        if (removedTexts.length > 0) {
+            // Если есть удалённые элементы, добавляем их обратно
+            const textToRestore = removedTexts.pop();
+            $('#container').append(`<p style="color: ${getRandomColor()}">${textToRestore}</p>`);
+        } else {
+            // Добавляем новый текст из массива
+            $('#container').append(`<p style="color: ${getRandomColor()}">${texts[index % texts.length]}</p>`);
+            index++;
+        }
+    });
+
+    // Удаление последнего элемента
+    $('#remove').click(function () {
+        const lastParagraph = $('#container p:last');
+        if (lastParagraph.length > 0) {
+            const removedText = lastParagraph.text();
+            removedTexts.push(removedText);
+            lastParagraph.remove();
+        } else {
+            alert("Нечего удалять!");
+        }
+    });
+
+    // Циклическая замена текста последнего элемента
+    $('#replace').click(function () {
+        const lastParagraph = $('#container p:last');
+        if (lastParagraph.length > 0) {
+            // Заменяем текст последнего параграфа на следующий из массива
+            lastParagraph.text(texts[index % texts.length]);
+            // Меняем цвет текста на случайный
+            lastParagraph.css('color', getRandomColor());
+            index++;
+        } else {
+            alert("Нечего заменять!");
+        }
+    }); 
+
+        // Изменение CSS стиля - 1 Красный
+        $('#ColorRed').click(function () {
+            $('#jquery-textS3').css('color', 'red');
+
+        }); 
+
+        // Изменение CSS стиля - 2 Жёлтый 
+        $('#ColorYellow').click(function () {
+            $('#jquery-textS3').css('color', 'yellow');
+    });
+
+        // Изменение CSS стиля - 3 Зелёный      
+        $('#ColorGreen').click(function () {
+        $('#jquery-textS3').css('color', 'green');
+    });
+
+        // Изменение CSS стиля - 4 Белый      
+        $('#ColorWhite').click(function () {
+        $('#jquery-textS3').css('color', 'white');
+    });
+
+        // Переключение класса
+        $('#toggleClass').click(function () {
+        $('#smena').toggleClass('highlight');
+    });
+
+        // Появление секции ввиде скольжения
+        $('#toggleSection5').click(function() {
+            $('#section5').slideToggle(500); 
+    });
+});
+</script>
+
+<!--Тело-->
+
+<body>
+
+    <!--Навигация-->
+
+    <header>
+        <h1>Основы Искусственного Интеллекта</h1>
+        <div class="nav-head">
+            <nav>
+                <a href="page3.html" target="_blank"><b>Вопросы об ИИ</b></a>
+                <a href="page2.html" target="_blank"><b>Подбор книг по ИИ</b></a>
+                <a href="page4.html" target="_blank"><b>Анализ</b></a>
+                <a href="page5.html" target="_blank"><b>Применение ИИ</b></a>
+            </nav>
+        </div>
+    </header>
+
+    <!--Секция - 1: Что такое Искусственный Интеллект?-->
+
+    <div class="block-S1" id="migaet">
+        <section id="section1">
+            <h2 id="text-border">Что такое Искусственный Интеллект?</h2>
+            <p id="smena"style="font-size: 1.7em">
+                <img id="mainImage" src="Image/maxresdefault.jpg" alt="Искусственный интеллект" class="float-image">
+                <strong>Искусственный интеллект (ИИ)</strong> — это <em>раздел компьютерных наук</em>, который
+                занимается созданием систем, способных выполнять задачи, требующие <strong>человеческого
+                    интеллекта</strong>.
+                    <button onclick="changeImage()">Поменять изображение</button>
+                    <button id="toggleClass">Обводка</button>
+            </p>
+    </div>
+    </section>
+
+    <div class="slider">
+        <div><img src="Image/ai.webp" alt="Image 1"></div>
+        <div><img src="Image/AI.jpg" alt="Image 2"></div>
+        <div><img src="Image/maxresdefault.jpg" alt="Image 3"></div>
+    </div>
+
+    <!--Секция - 2: К таким задачам относятся-->
+
+    <section id="section2">
+        <div class="block-S">
+            <h2 id="text-border">К таким задачам относятся:</h2>
+            <ul>
+                <li><b>Обработка естественного языка</b></li>
+                <li><i>Распознавание речи</i></li>
+                <li><u>Машинное обучение</u></li>
+            </ul>
+        </div>
+    </section>
+
+    <!--Секция - 3: Будущее Искусственного Интеллекта-->
+
+    <section id="section3">
+        <h2 id="text-AM3">Будущее Искусственного Интеллекта</h2>
+        <div id="block-S3">
+            <p id="jquery-textS3">
+                Искусственный интеллект продолжает развиваться,
+                открывая новые горизонты для человечества. Системы ИИ могут
+                улучшить производительность в различных сферах,
+                включая <strong>образование</strong>, где адаптивные
+                учебные платформы помогут учиться индивидуально, и <strong>экологию</strong>,
+                где ИИ поможет в анализе данных для устойчивого развития. Важно
+                следить за этическими аспектами и потенциальными рисками, чтобы использовать ИИ в пользу общества.
+            </p>
+            <div id="container">
+                <p></p>
+            </div>
+            <button id="add">Статиста ИИ за 2024г</button>
+            <button id="remove">Удалить</button>
+            <button id="replace">Заменить</button>
+            <button id="ColorRed">Цвет текста - Красный</button>
+            <button id="ColorYellow">Цвет текста - Жёлтый</button>
+            <button id="ColorGreen">Цвет текста - Зелёный</button>
+            <button id="ColorWhite">Цвет текста - Белый</button>
+    </section>
+    </div>
+
+    <!-- Блок навигации по сайту -->
+    <div class= "block-S">
+        <section id="sectionNav">
+        <h2 id="text-border">Навигация по странице</h2>
+        <div class="nav-block">
+        <nav>
+            <ul>
+                <li><a href="#section1">Введение в ИИ</a></li>
+                <li><a href="#section3">Будущее ИИ</a></li>
+                <li><a href="#section4">Применения ИИ</a></li>
+                <li><a href="#section5">История ИИ</a></li>
+                <li><a href="#section6">Основные направления ИИ</a></li>
+                <li><a href="#section7">Дополнительная информация</a></li>
+            </ul>
+        </nav>
+    </section>
+    </div>
+
+    <!--Секция - 4: Где применяется Искусственный Интеллект?-->
+
+    <div class="block-S">
+        <section id="section4">
+            <h2 id="text-border">Где применяется Искусственный Интеллект?</h2>
+            <ol>
+                <li>Автономные транспортные средства
+                    <ul>
+                        <li>Автомобили</li>
+                        <li>Дроны</li>
+                    </ul>
+                </li>
+                <li>Здравоохранение</li>
+                <li>Финансовые технологии</li>
+            </ol>
+        </section>
+    </div>
+
+    <!--Секция - 5: Краткая история Искусственного Интеллекта (Таблица)-->
+
+    <div class="block-S">
+        <button id="toggleSection5">Показать/Скрыть историю ИИ</button>
+        <section id="section5">
+            <h2 id="text-border">Краткая история Искусственного Интеллекта</h2>
+            <table data-sort-asc="true">
+                <caption><i><b>Ключевые события в истории ИИ</b></i></caption>
+                <thead>
+                    <tr>
+                        <th>Год</th>
+                        <th>Событие</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1950</td>
+                        <td>Тест Тьюринга</td>
+                        <td>Алан Тьюринг предложил тест для оценки способности машины к интеллектуальному поведению.</td>
+                    </tr>
+                    <tr>
+                        <td>1956</td>
+                        <td>Дартмутская конференция</td>
+                        <td>Конференция, на которой был впервые использован термин "искусственный интеллект".</td>
+                    </tr>
+                    <tr class="super prioritet">
+                        <td colspan="3">2011: Достижение IBM Watson - IBM Watson выиграл в шоу "Jeopardy!" против человеческих чемпионов.</td>
+                    </tr>
+                    <tr>
+                        <td>1997</td>
+                        <td>Deep Blue побеждает Гарри Каспарова</td>
+                        <td>Суперкомпьютер Deep Blue от IBM победил чемпиона мира по шахматам Гарри Каспарова.</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>Прорыв в глубоких нейронных сетях</td>
+                        <td>Команда Google создала систему распознавания изображений, способную идентифицировать объекты на изображениях с высокой точностью.</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td>AlphaGo побеждает чемпиона по игре Го</td>
+                        <td>AlphaGo от DeepMind обыграл чемпиона Ли Седоля в сложной игре Го, что стало большим шагом для ИИ.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="sortTableByYear()">Сортировать таблицу по годам</button>
+        </section>
+    </div>
+
+    <!--Секция - 6: Основные направления искусственного интеллекта-->
+
+    <section id="section6">
+        <div class="block-S" id="vueApp">
+            <h2 id="text-border">Основные направления искусственного интеллекта</h2>
+            <p>Искусственный интеллект включает несколько ключевых направлений, каждое из которых имеет свои задачи и области применения:</p>
+            <div class="Block-obchee">
+                <div class="Block-S6" @click="VueOtkrit('ml')">
+                    <h3 >Машинное обучение</h3>
+                    <p v-if="visible.ml">Отвечает за обучение моделей на основе данных и улучшение их предсказаний.</p>
+                </div>
+                <div class="Block-S6" @click="VueOtkrit('nlp')">
+                    <h3>Обработка естественного языка</h3>
+                    <p v-if="visible.nlp">Сфокусирована на понимании и генерации текста, речи, общения на человеческом языке.</p>
+                </div>
+                <div class="Block-S6" @click="VueOtkrit('cv')">
+                    <h3>Компьютерное зрение</h3>
+                    <p v-if="visible.cv">Отвечает за распознавание и интерпретацию изображений и видео.</p>
+                </div>
+                <div class="Block-S6" @click="VueOtkrit('robotics')">
+                    <h3>Робототехника</h3>
+                    <p v-if="visible.robotics">Применяется для создания интеллектуальных роботов, способных выполнять задачи в физическом мире.</p>
+                </div>
+                <div class="Block-S6" @click="VueOtkrit('generative')">
+                    <h3>Генеративные модели</h3>
+                    <p v-if="visible.generative">Используются для создания нового контента: текстов, изображений, музыки и других форм данных.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="color: rgb(255, 255, 255);">© 2024 AI - Искусственный интеллект</p>
+    </footer>
+
+    <section id="section8">
+        <div class="block-S">
+            <h2 id="text-border">Информация о сайте</h2>
+            <button onclick="showBrowserInfo()">Показать информацию о браузере</button>
+            <button onclick="showScreenResolution()">Разрешение экрана</button>
+            <button onclick="changeFont1()">Выбрать шрифт: Times New Roman</button>
+            <button onclick="changeFont2()">Выбрать шрифт: Bender</button>
+            <h2 id="text-border">Изменение фона сайта</h2>
+            <button onclick="changeBackgroundColor1()">Цвет фона: Голубой </button>
+            <button onclick="changeBackgroundColor2()">Цвет фона: Красный</button>
+            <button onclick="changeBackgroundColor3()">Цвет фона: Жёлтый</button>
+        </div>
+    </section>
+    
+    <!--Секция - 7: Дополнительная информация-->
+    <section id="section7">
+        <div class="block-S">
+            <h2 id="text-border">Дополнительная информация</h2>
+    <button onclick="addliteratura()">Рекомендуемая литература</button>
+    </div>
+    </section>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    visible: {
+                        ml: false,
+                        nlp: false,
+                        cv: false,
+                        robotics: false,
+                        generative: false
+                    }
+                }
+            },
+            methods: {
+                VueOtkrit(section) {
+                    this.visible[section] = !this.visible[section];
+                }
+            }
+        });
+
+        app.mount('#vueApp');
+    </script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js">
+</script> 
+<script type="text/javascript"> 
+$(document).ready(function(){ $('.slider').slick(); }); 
+</script>
+
+
+</body>
+
+</html>

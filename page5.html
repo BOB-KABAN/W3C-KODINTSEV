@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анимация круга ИИ</title>
+  <style>
+    /* Стили для страницы и элементов */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f8ff;
+      overflow: hidden;
+      font-family: "bender", sans-serif;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none; 
+    }
+
+    svg {
+      position: relative;
+      width: 800px;
+      height: 800px;
+    }
+
+    circle {
+      fill: #1e90ff; 
+      cursor: pointer;
+      transition: fill 0.3s; 
+    }
+
+    circle:hover {
+      fill: #87cefa; 
+    }
+
+    .category-circle {
+      fill: #00eeff; 
+    }
+
+    text {
+      fill: #444; 
+      font-size: 22px;
+      font-family: "bender", sans-serif;
+      text-anchor: middle; 
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <svg viewBox="0 0 800 800">
+    <!-- Центральный круг с текстом -->
+    <circle id="central" cx="400" cy="400" r="100" />
+    <text x="400" y="400">ИИ</text>
+
+    <!-- Круги для категорий -->
+    <circle class="category-circle" cx="650" cy="150" r="60" />
+    <text x="650" y="150">Биометрия</text>
+
+    <circle class="category-circle" cx="650" cy="400" r="60" />
+    <text x="650" y="400">Речевые технологии</text>
+
+    <circle class="category-circle" cx="650" cy="650" r="60" />
+    <text x="650" y="650">Робототехника</text>
+
+    <circle class="category-circle" cx="150" cy="150" r="60" />
+    <text x="150" y="150">Образование</text>
+
+    <circle class="category-circle" cx="150" cy="400" r="60" />
+    <text x="150" y="400">Транспорт</text>
+
+    <circle class="category-circle" cx="150" cy="650" r="60" />
+    <text x="150" y="650">Здравоохранение</text>
+  </svg>
+
+  <script>
+    // Получаем элементы canvas и SVG
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const svg = document.querySelector('svg');
+
+    // Устанавливаем размеры canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Получаем центральный круг и категории
+    const centralCircle = document.getElementById('central');
+    const categoryCircles = document.querySelectorAll('.category-circle');
+
+    let currentTarget = 0; 
+    const animationCircle = { x: 400, y: 400, progress: 0 }; 
+
+    // Параметры для анимации центрального круга
+    let centralRadius = 100; 
+    let scalingDirection = 1; 
+
+    // Функция для получения позиции круга
+    function getCirclePosition(circle) {
+      const rect = svg.getBoundingClientRect(); 
+      const cx = parseFloat(circle.getAttribute('cx')) + rect.left; 
+      const cy = parseFloat(circle.getAttribute('cy')) + rect.top; 
+      return { x: cx, y: cy }; 
+    }
+
+    // Функция для рисования линий от центрального круга
+    function drawLines() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Очистка canvas
+
+      const { x: startX, y: startY } = getCirclePosition(centralCircle); 
+      const { x: endX, y: endY } = getCirclePosition(categoryCircles[currentTarget]); 
+
+      ctx.strokeStyle = "red"; 
+      ctx.lineWidth = 2; 
+
+      // Рисуем линии для всех категорий
+      categoryCircles.forEach((circle) => { 
+        const { x, y } = getCirclePosition(circle);
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      });
+    }
+
+    // Функция для анимации маленького круга
+    function animateCircle() {
+      drawLines(); 
+
+      const { x: startX, y: startY } = getCirclePosition(centralCircle); 
+      const { x: endX, y: endY } = getCirclePosition(categoryCircles[currentTarget]); 
+
+      // Вычисляем координаты для анимации
+      animationCircle.x = startX + (endX - startX) * animationCircle.progress;
+      animationCircle.y = startY + (endY - startY) * animationCircle.progress;
+
+      // Рисуем маленький круг
+      ctx.beginPath();
+      ctx.arc(animationCircle.x, animationCircle.y, 8, 0, Math.PI * 2); 
+      ctx.fillStyle = "#1e90ff"; 
+      ctx.fill(); 
+
+      // Анимация изменения размера центрального круга
+      centralRadius += scalingDirection * 0.5; // Изменяем радиус
+
+      // Переключаем направление изменения размера, если достигли предела
+      if (centralRadius >= 120 || centralRadius <= 80) {
+        scalingDirection *= -1; // Изменяем направление
+      }
+
+      // Обновляем радиус центрального круга
+      centralCircle.setAttribute('r', centralRadius);
+
+      animationCircle.progress += 0.01; // Увеличиваем прогресс анимации
+
+      if (animationCircle.progress >= 1) { // Если анимация завершена
+        animationCircle.progress = 0; // Сбрасываем прогресс
+        currentTarget = (currentTarget + 1) % categoryCircles.length; // Переходим к следующей категории
+      }
+
+      requestAnimationFrame(animateCircle); 
+    }
+
+    // Обработчик изменения размера окна
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth; 
+      canvas.height = window.innerHeight; 
+    });
+
+    animateCircle(); // Запускаем анимацию
+  </script>
+</body>
+</html>

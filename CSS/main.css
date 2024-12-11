@@ -1,0 +1,348 @@
+/* Основные стили */
+
+body {
+    background: linear-gradient(to bottom, #f4f4f4, #05eeff);
+    font-family: "bender", sans-serif;
+    line-height: 1.6;
+}
+
+.slider img { 
+    width: 500px; 
+    height: auto; 
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+#hoverBox {
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+}
+
+header {
+    background: #00249c;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+    text-shadow: 2px 1px 2px #000;
+}
+
+
+/* Стили кнопок */
+button {
+    font-family: "bender", sans-serif;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border: 1px dashed #00259e;
+    font-size: 16pt;
+}   
+
+button:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease
+}
+
+.remove-button {
+    background-color: rgb(255, 18, 18);
+    color: #ffffff;
+    font-size: 20pt;
+}
+
+#toggleSection5 {
+    font-size: 12pt;
+}   
+
+/* Навигация - Общая */
+a {
+    color: #00ffd5;
+    margin: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: purple; 
+}
+
+/* Списки - Общие */
+ul {
+    color: #001aff;
+    list-style-type: square;
+    font-size: 1.5em;
+}
+
+ol { 
+    color: #000000; 
+    list-style-type: upper-roman;    
+    margin-left: 20px;  
+    font-size: 1.5em;              
+}
+
+/* Навигация - Верхняя плашка */
+.nav-head {
+    margin-bottom: 20px;
+    margin-top: -20px;
+    font-size: 1.2em;
+}
+
+.nav-head a {
+    color: #00ffd5;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-head a:hover {
+    color: rgb(251, 255, 0);
+    background-color: rgba(0, 123, 255, 0.2);
+    text-decoration: underline;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.nav-head a:visited {
+    color: rgb(99, 99, 99); 
+}
+
+/* Текст */
+h1 {
+    color: #ffffff;
+    font-size: 3em;
+}
+
+h2 {
+    color: #00259e;
+    font-size: 2.5em;
+}
+
+h3 {
+    color: #000;
+    font-size: 2.2em;
+}
+
+/* Блок - Общий */
+.block-S {
+    border: 1px solid #ddd;
+    padding: 0cm 1cm 1cm 2cm;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    font-family: "bender", serif;
+    margin-bottom: 40px;
+}
+
+#text-border {
+    color: #00259e;
+    border-bottom: 2px solid #00259e;
+}
+
+/* Блок - S1 */
+
+.highlight {
+    font-weight: bold;
+    background-color: yellow;
+}
+
+.block-S1 {
+    padding: 0cm 1cm 7cm 2cm;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: migaet 2s infinite;
+    border: 5px dashed #00259e;
+}
+
+.block-S7 {
+    padding: 0cm 1cm 1cm 2cm;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: migaet 2s infinite;
+    border: 5px dashed #00259e;
+    margin-bottom: 40px;
+}
+
+.float-image {
+    float: left;
+    margin: 0 15px 15px 0;
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #00259e;
+}
+
+img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease
+}
+
+/* Блок - S2 */
+#section2 {
+    margin-top: 40px;
+}
+
+/* Блок - S3 */
+#block-S3 {
+    color: #ddd;
+    background-color: #00259e;
+    font-family: "bender", sans-serif;
+    font-size: 16pt;
+    text-indent: 1.5cm;
+    padding-left: 3cm;
+    padding-right: 3cm;
+    padding-top: 1cm;
+    padding-bottom: 1cm;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+#block-S3::first-letter {
+    font-size: 18pt;
+}
+
+#text-AM3 {
+    color: #00259e;
+    font-size: 3.5em;
+    position: absolute;
+    transform: translate(-3px, -109px);
+}
+
+#jquery-textS3 {
+    color: #ffffff;
+}
+
+/* Навигация - блок */
+.nav-block {
+    margin-bottom: 20px;
+}
+
+.nav-block a {
+    color: #00259e;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.nav-block a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.nav-block a:visited {
+    color: rgb(99, 99, 99); 
+}
+
+/* Блок - S5 */
+
+#section5 {
+    display: none; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+caption {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 2px dashed #00259e;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #00259e;
+    color: #ffffff;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+td:first-child {
+    text-align: justify;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
+
+/* Блок - S6 */
+
+.Block-obchee {
+    justify-content: center;  
+    text-align: center;   
+    align-items: stretch; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.Block-S6 {
+    background-color: #fff;
+    border: 2px dashed #00259e;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    flex: 10%;
+    padding: 0px 30px 75px 30px;
+    text-align: center;
+    transition: border-width 0.2s ease; 
+}
+
+.Block-S6 h3 {
+    color: #00259e;
+    border-bottom: 2px solid #00259e;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+.Block-S6 p {
+    color: #444;
+    font-size: 16px;
+}
+
+.Block-S6:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+    border-width: 5px;
+}
+
+footer {
+    position: fixed; 
+    bottom: 0;       
+    width: 100%;     
+    text-align: center;
+    background-color: #00259e;
+    padding: 1px 0;
+    z-index: 100;   
+}
+
+@keyframes migaet {
+    0% {
+        border-color: #00259e;
+    }
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: #00259e; 
+    }
+}
+
