@@ -5,31 +5,106 @@
             <head>
                 <title>Алгоритмы машинного обучения</title>
                 <style>
+                    /* Основные стили */
+                    body {
+                        background: linear-gradient(to bottom, #f4f4f4, #05eeff);
+                        font-family: "bender", sans-serif;
+                        line-height: 1.6;
+                    }
+
+                    h1 {
+                        color: #ffffff;
+                        font-size: 3em;
+                    }
+
+                    h2 {
+                        color: #00259e;
+                        font-size: 2.5em;
+                    }
+
+                    button {
+                        font-family: "bender", sans-serif;
+                        background-color: rgba(255, 255, 255);
+                        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+                        border-radius: 5px;
+                        border: 1px dashed #00259e;
+                        font-size: 16pt;
+                    }
+
+                    button:hover {
+                        transform: scale(1.2);
+                        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+                        transition: transform 0.3s ease;
+                    }
+
+                    ul {
+                        color: #001aff;
+                        list-style-type: square;
+                        font-size: 1.5em;
+                    }
+
+                    /* Стили для таблицы */
                     table {
                         width: 100%;
                         border-collapse: collapse;
+                        margin: 20px 0;
                     }
+
+                    caption {
+                        text-align: center;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+
                     th, td {
-                        border: 1px solid black;
-                        padding: 8px;
+                        border: 2px dashed #00259e;
+                        padding: 12px;
                         text-align: left;
                     }
+
                     th {
-                        background-color: #f2f2f2;
-                        cursor: pointer;
+                        background-color: #00259e;
+                        color: #ffffff;
+                        text-align: center;
                     }
+
+                    tr:nth-child(even) {
+                        background-color: lightblue;
+                    }
+
+                    tr:nth-child(odd) {
+                        background-color: white;
+                    }
+
+                    td:first-child {
+                        text-align: justify;
+                    }
+
+                    td:nth-child(2) {
+                        text-align: center;
+                    }
+
+                    /* Дополнительные стили для hover */
                     th.sortable:hover {
                         background-color: #ddd;
                     }
-                    ul {
-                        list-style-type: disc;
-                        padding-left: 20px;
+
+                    /* Стиль для списка */
+                    .highlight {
+                        font-weight: bold;
+                        background-color: yellow;
+                    }
+
+                    /* Фильтры и кнопки */
+                    select {
+                        font-size: 1em;
+                        padding: 5px;
+                        margin-bottom: 20px;
                     }
                 </style>
                 <script>
                     let currentSort = "ascending";
 
-                    // Сортировка таблицы по году
                     function sortTable() {
                         const rows = Array.from(document.querySelectorAll("table tbody tr"));
                         rows.sort((rowA, rowB) => {
@@ -43,7 +118,6 @@
                         rows.forEach(row => tbody.appendChild(row));
                     }
 
-                    // Фильтрация по области применения
                     function filterByApplication() {
                         const filterValue = document.getElementById("application").value;
                         const rows = Array.from(document.querySelectorAll("table tbody tr"));
@@ -57,7 +131,6 @@
                         });
                     }
 
-                    // Сортировка списка алгоритмов
                     let listSortOrder = "ascending";
                     function sortList() {
                         const list = document.getElementById("algorithm-list");
