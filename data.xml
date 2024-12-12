@@ -29,6 +29,7 @@
         <Developer>Joe H. Ward</Developer>
         <Complexity>Средняя</Complexity>
     </Algorithm>
+    <Algorithm>
         <Name>Naive Bayes</Name>
         <Application>Классификация</Application>
         <Year>1961</Year>
