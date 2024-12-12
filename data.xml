@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="style.xsl"?>
 <MachineLearning>
     <Algorithm>
-        <Name>Gradient Boosting</Name>
+        <Name>Gradient Boostввававаing</Name>
         <Application>Классификация</Application>
         <Year>1999</Year>
         <Developer>Jerome Friedman</Developer>
